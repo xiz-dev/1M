@@ -1,0 +1,626 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(ellipse at top, #fff0f8 0%, #ffeef7 30%, #f0e6ff 60%, #e6f3ff 100%);
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(221, 160, 221, 0.1) 0%, transparent 50%);
+    animation: shimmer 8s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background Elements */
+.background-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.jellyfish {
+    position: absolute;
+    opacity: 0.7;
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 4px 8px rgba(255, 110, 199, 0.3));
+}
+
+.jellyfish-1 {
+    width: 140px;
+    height: 120px;
+    background: radial-gradient(ellipse at center, #ff6ec7 0%, #ff8fd8 40%, #ffb3e6 70%, transparent 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    top: 10%;
+    left: 15%;
+    box-shadow: 
+        0 0 30px rgba(255, 110, 199, 0.4),
+        inset 0 -20px 20px rgba(255, 110, 199, 0.2);
+}
+
+.jellyfish-1::before {
+    content: '';
+    position: absolute;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 70px;
+    background: linear-gradient(to bottom, rgba(255, 110, 199, 0.8), rgba(255, 140, 217, 0.5), transparent);
+    border-radius: 2px;
+    animation: tentacle-wave 3s ease-in-out infinite;
+}
+
+.jellyfish-1::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: calc(50% - 15px);
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(255, 110, 199, 0.6), transparent);
+    border-radius: 2px;
+    animation: tentacle-wave 3s ease-in-out infinite 0.3s;
+}
+
+.jellyfish-2 {
+    width: 110px;
+    height: 95px;
+    background: radial-gradient(ellipse at center, #ffb3e6 0%, #ffc2e6 40%, #ffe0f0 70%, transparent 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    bottom: 20%;
+    right: 20%;
+    box-shadow: 
+        0 0 25px rgba(255, 179, 230, 0.4),
+        inset 0 -15px 15px rgba(255, 179, 230, 0.2);
+    animation-delay: 1s;
+}
+
+.jellyfish-2::before {
+    content: '';
+    position: absolute;
+    bottom: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2.5px;
+    height: 55px;
+    background: linear-gradient(to bottom, rgba(255, 179, 230, 0.7), rgba(255, 194, 230, 0.4), transparent);
+    border-radius: 2px;
+    animation: tentacle-wave 3.5s ease-in-out infinite 0.5s;
+}
+
+@keyframes tentacle-wave {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(-48%) translateY(-2px) rotate(2deg);
+    }
+    75% {
+        transform: translateX(-52%) translateY(-2px) rotate(-2deg);
+    }
+}
+
+.coral {
+    position: absolute;
+    opacity: 0.6;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+}
+
+.coral-1 {
+    width: 80px;
+    height: 100px;
+    background: linear-gradient(to top, #ffa366 0%, #ffb380 50%, #ffd4b3 100%);
+    border-radius: 20px 20px 10px 10px;
+    bottom: 15%;
+    left: 10%;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 50%, 50% 100%, 30% 50%);
+    animation: coral-glow 3s ease-in-out infinite;
+}
+
+.coral-2 {
+    width: 70px;
+    height: 90px;
+    background: linear-gradient(to top, #ffb3e6 0%, #ffc2e6 50%, #ffe0f0 100%);
+    border-radius: 50%;
+    bottom: 18%;
+    right: 12%;
+    clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 50%);
+    animation: coral-glow 3s ease-in-out infinite 1.5s;
+}
+
+@keyframes coral-glow {
+    0%, 100% {
+        filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+    }
+    50% {
+        filter: drop-shadow(0 2px 8px rgba(255, 110, 199, 0.3));
+    }
+}
+
+.bubbles {
+    position: absolute;
+    top: 10%;
+    right: 15%;
+}
+
+.bubble {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(255, 182, 193, 0.6);
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 192, 203, 0.4), rgba(255, 228, 225, 0.2));
+    animation: bubble-float 4s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
+}
+
+.bubble:nth-child(1) {
+    top: 0;
+    left: 0;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+    top: 20px;
+    left: 25px;
+    animation-delay: 0.5s;
+    width: 20px;
+    height: 20px;
+}
+
+.bubble:nth-child(3) {
+    top: 40px;
+    left: 15px;
+    animation-delay: 1s;
+    width: 25px;
+    height: 25px;
+}
+
+.bubble:nth-child(4) {
+    top: 60px;
+    left: 30px;
+    animation-delay: 1.5s;
+    width: 18px;
+    height: 18px;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    50% {
+        transform: translateY(-25px) rotate(5deg) scale(1.05);
+    }
+}
+
+@keyframes bubble-float {
+    0% {
+        transform: translateY(0px);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 0.7;
+    }
+}
+
+/* Envelope */
+.envelope-container {
+    position: relative;
+    cursor: pointer;
+    z-index: 100;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.envelope-container:hover {
+    transform: scale(1.05);
+}
+
+.envelope {
+    position: relative;
+    width: 360px;
+    height: 240px;
+}
+
+.envelope-body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffc2d6 0%, #ffd6e5 50%, #ffe0ea 100%);
+    border-radius: 10px;
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(135deg, #ffe0ea 0%, #ffd6e5 50%, #ffc2d6 100%);
+    border-radius: 10px 10px 0 0;
+    transform-origin: top;
+    transition: transform 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 3;
+    box-shadow: 
+        0 -8px 25px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.envelope-flap::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(255, 110, 199, 0.3), transparent);
+}
+
+.click-to-open {
+    font-size: 22px;
+    color: #ff6ec7;
+    font-weight: 600;
+    font-style: italic;
+    text-shadow: 0 2px 8px rgba(255, 110, 199, 0.3);
+    opacity: 0.9;
+    transition: opacity 0.5s ease;
+    white-space: nowrap;
+    z-index: 2;
+    animation: clickPulse 2s ease-in-out infinite;
+    margin-top: 80px;
+}
+
+@keyframes clickPulse {
+    0%, 100% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+
+/* Open Animation */
+.envelope-flap.open {
+    transform: rotateX(-180deg);
+}
+
+/* Letter */
+.letter-container {
+    position: absolute;
+    width: 550px;
+    height: 650px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+    transform: translateY(100px);
+}
+
+.letter {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #ffffff 0%, #fefefe 100%);
+    border-radius: 10px;
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    transform: scale(0.7);
+    transition: all 0.6s ease;
+    border: 1px solid rgba(255, 182, 193, 0.2);
+    position: relative;
+}
+
+.letter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(255, 240, 248, 0.3), transparent);
+    border-radius: 10px 10px 0 0;
+    pointer-events: none;
+}
+
+.letter-to {
+    position: absolute;
+    top: 35px;
+    left: 45px;
+    font-size: 17px;
+    color: #999;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.letter-from {
+    position: absolute;
+    bottom: 35px;
+    right: 45px;
+    font-size: 17px;
+    color: #999;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.letter-from:hover {
+    color: #ff6ec7;
+    transform: scale(1.1);
+}
+
+.letter-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.letter-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+.romantic-text {
+    font-size: 24px;
+    color: #666;
+    line-height: 1.5;
+    text-align: center;
+    margin: 0;
+}
+
+.ending-text {
+    font-size: 20px;
+    color: #ff6ec7;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 15px;
+    text-shadow: 0 1px 3px rgba(255, 110, 199, 0.2);
+}
+
+.signature {
+    font-size: 17px;
+    color: #ff9fd0;
+    text-align: right;
+    font-style: italic;
+    margin-top: auto;
+    font-weight: 500;
+}
+
+/* Pop Out Animation */
+.letter-container.pop-out {
+    opacity: 1;
+    pointer-events: all;
+    animation: popOut 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes popOut {
+    0% {
+        transform: translateY(100px) scale(0.4) rotate(2deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-40px) scale(1.05) rotate(-1deg);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+    .jellyfish-1 {
+        width: 120px;
+        height: 100px;
+        top: 8%;
+        left: 10%;
+    }
+    
+    .jellyfish-2 {
+        width: 90px;
+        height: 80px;
+        bottom: 15%;
+        right: 15%;
+    }
+    
+    .coral-1 {
+        width: 60px;
+        height: 80px;
+    }
+    
+    .coral-2 {
+        width: 55px;
+        height: 70px;
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+    .envelope {
+        width: 280px;
+        height: 190px;
+    }
+    
+    .letter-container {
+        width: 420px;
+        height: 550px;
+    }
+    
+    .click-to-open {
+        font-size: 16px;
+        margin-top: 60px;
+    }
+    
+    .romantic-text {
+        font-size: 20px;
+    }
+    
+    .letter-to,
+    .letter-from {
+        font-size: 14px;
+    }
+    
+    .jellyfish-1 {
+        width: 100px;
+        height: 85px;
+        top: 5%;
+        left: 5%;
+    }
+    
+    .jellyfish-2 {
+        width: 80px;
+        height: 70px;
+        bottom: 10%;
+        right: 10%;
+    }
+    
+    .coral-1 {
+        width: 50px;
+        height: 60px;
+        bottom: 12%;
+        left: 5%;
+    }
+    
+    .coral-2 {
+        width: 45px;
+        height: 55px;
+        bottom: 15%;
+        right: 8%;
+    }
+    
+    .bubbles {
+        top: 5%;
+        right: 10%;
+    }
+}
+
+/* Responsive - Small Mobile */
+@media (max-width: 480px) {
+    .envelope {
+        width: 260px;
+        height: 175px;
+    }
+    
+    .letter-container {
+        width: 380px;
+        height: 500px;
+    }
+    
+    .letter {
+        padding: 30px;
+    }
+    
+    .click-to-open {
+        font-size: 14px;
+        margin-top: 50px;
+    }
+    
+    .romantic-text {
+        font-size: 19px;
+        line-height: 1.4;
+    }
+    
+    .letter-to,
+    .letter-from {
+        font-size: 13px;
+    }
+    
+    .letter-to {
+        top: 30px;
+        left: 35px;
+    }
+    
+    .letter-from {
+        bottom: 30px;
+        right: 35px;
+    }
+    
+    .jellyfish-1 {
+        width: 80px;
+        height: 70px;
+    }
+    
+    .jellyfish-2 {
+        width: 70px;
+        height: 60px;
+    }
+    
+    .coral-1 {
+        width: 40px;
+        height: 50px;
+    }
+    
+    .coral-2 {
+        width: 35px;
+        height: 45px;
+    }
+    
+    .bubble {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .letter-body {
+        gap: 6px;
+    }
+}
+

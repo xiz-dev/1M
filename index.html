@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 MONTH</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="background-elements">
+            <div class="jellyfish jellyfish-1"></div>
+            <div class="jellyfish jellyfish-2"></div>
+            <div class="coral coral-1"></div>
+            <div class="coral coral-2"></div>
+            <div class="bubbles">
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+            </div>
+        </div>
+
+        <div class="envelope-container" id="envelopeContainer">
+            <div class="envelope">
+                <div class="envelope-body">
+                    <div class="click-to-open"></div>
+                </div>
+                <div class="envelope-flap" id="envelopeFlap"></div>
+            </div>
+        </div>
+
+        <div class="letter-container" id="letterContainer">
+            <div class="letter" id="letter">
+                <div class="letter-to">TO PAT</div>
+                <div class="letter-content">
+                    <div class="letter-body">
+                        <p class="romantic-text">1 MONTH LEAW NA </p>
+                        <p class="romantic-text">RAK PAT NA 💓 </p>
+                        <p class="romantic-text">แม้เราจะห่างกัน แต่ใจฉันอยู่กับคุณเสมอ</p>
+                        <p class="romantic-text">ขอบคุณเธอมากๆที่ซัพพอตเค้ามาตลอด</p>
+                        <p class="romantic-text">ถึงเราจะทะเลาะกันบ่อยแค่ไหน ก็ยังรักเธอมากๆ</p>
+                        <p class="romantic-text">ขอบคุณที่อยู่ด้วยกันมาตลอดนะ</p>
+
+                    </div>
+                </div>
+                <div class="letter-from" id="fromBabe">FROM BABE</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const envelopeContainer = document.getElementById('envelopeContainer');
+        const envelopeFlap = document.getElementById('envelopeFlap');
+        const letterContainer = document.getElementById('letterContainer');
+        const clickToOpen = document.querySelector('.click-to-open');
+        const fromBabe = document.getElementById('fromBabe');
+        let isOpened = false;
+
+        envelopeContainer.addEventListener('click', function() {
+            if (!isOpened) {
+                isOpened = true;
+                clickToOpen.style.opacity = '0';
+                
+                // เปิด flap ของซองจดหมาย
+                envelopeFlap.classList.add('open');
+                
+                // รอให้ flap เปิดก่อนแล้วค่อยให้กระดาษเด้งออกมา
+                setTimeout(() => {
+                    letterContainer.classList.add('pop-out');
+                }, 400);
+                
+                setTimeout(() => {
+                    clickToOpen.style.display = 'none';
+                }, 500);
+            }
+        });
+
+        // เพิ่ม event listener สำหรับ FROM BABE
+        fromBabe.addEventListener('click', function() {
+            const audio = new Audio('audio.mp3');
+            audio.play().catch(err => {
+                console.log('Error playing audio:', err);
+            });
+        });
+    </script>
+</body>
+</html>
